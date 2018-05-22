@@ -1,0 +1,43 @@
+
+
+
+
+<div id="printDiv">
+    <h1>Your score is {{marks}}</h1>
+    <div bgcolor="grey">
+    <div *ngFor="let k of result"  style =" margin: 70px;">
+     <font size="6" color="black"> {{k.question}}</font>
+     <div *ngFor="let f of k.option" style =" margin: 20px;">
+        <font size="4" color="black"><div *ngIf="f==k.answer; else temp">
+        <input type="checkbox" [checked]="f==k.choosen" /> <b style="color:red">{{f}}</b>
+      </div>
+      <ng-template #temp>
+          <input type="checkbox" [checked]="f==k.choosen"/> {{f}}
+      </ng-template>
+        </font>
+      </div> 
+      
+      <input style="background-color:green;" type="text" *ngIf="k.answer==k.choosen" value="Correct Answer" >
+       <input style="background-color:red;" type="text" *ngIf="k.answer!=k.choosen && !(k.choosen=='')" value="Incorrect Answer" >
+        <input style="background-color:grey;" type="text" *ngIf="k.choosen==''" value="skiped answer" >
+        <br>
+        correct option is {{k.crctopt}}
+      <br><br>
+    </div>
+    </div>
+    <!-- <div class="class1">test 123</div>
+    <div style="color:red; font-size: 25px; font-weight:bold">test 123</div> 
+    <div>
+      <table border="1">
+        <tr><td style="font-weight:bold">Title</td><td style="font-weight:bold">Desc</td></tr>
+        <tr><td>Title</td><td>Desc</td></tr>
+        <tr><td>Title</td><td>Desc</td></tr>
+        <tr><td>Title</td><td>Desc</td></tr>
+      </table>
+    </div>-->
+    
+  </div> 
+
+  <button (click)="printPdf()" style="clear:both">
+    Export to Pdf
+  </button>
