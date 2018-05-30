@@ -17,8 +17,8 @@ this is same as
          
          To Run :
          
-         1. ng update @angular/cli
+
           
-         2. npm install
+         1. npm install
          
-         3. ng serve.
+         2. ng serve.
